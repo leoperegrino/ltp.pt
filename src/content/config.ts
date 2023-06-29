@@ -6,7 +6,7 @@ const blog = defineCollection({
 		title: z.string(),
 		description: z.string(),
 		// Transform string to Date object
-		pubDate: z
+		published: z
 			.string()
 			.or(z.date())
 			.transform((val) => new Date(val)),
@@ -14,7 +14,6 @@ const blog = defineCollection({
 			.string()
 			.optional()
 			.transform((str) => (str ? new Date(str) : undefined)),
-		heroImage: z.string().optional(),
 	}),
 });
 

@@ -1,13 +1,25 @@
 ---
-const today = new Date();
+import { SOCIAL } from '../consts';
+import { SITE_DESCRIPTION } from '../consts';
 ---
 
 <footer>
-	&copy; {today.getFullYear()} YOUR NAME HERE. All rights reserved.
+	{
+		SOCIAL.map(({ username, link }) => (
+		<li>
+			<a href={link}>
+				<span class="username">
+					{username}
+				</span>
+			</a>
+		</li>
+		))
+	}
+		<p> <i>{SITE_DESCRIPTION}</i> </p>
 </footer>
+
 <style>
-	footer {
-		padding: 25px;
-		text-align: center;
+	li {
+		list-style: none;
 	}
 </style>
